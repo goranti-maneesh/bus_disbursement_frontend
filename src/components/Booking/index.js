@@ -56,7 +56,10 @@ const Booking = () => {
 				}),
 			};
 			console.log(options);
-			const res = await fetch(`http://localhost:3001/api/book`, options);
+			const res = await fetch(
+				`https://bus-disbursement-backend-1.onrender.com/api/book`,
+				options
+			);
 			const data = await res.json();
 			alert("Seat booked successfully");
 			history.push("/buses");

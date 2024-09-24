@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
 
-import { BookingContext } from '../../context/context';
+import { BookingContext } from "../../context/context";
 
 import "./index.css";
 
@@ -15,18 +15,21 @@ const Login = () => {
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		try {
-			const res = await fetch("http://localhost:3001/api/login", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ studentID, password }),
-			});
+			const res = await fetch(
+				"https://bus-disbursement-backend-1.onrender.com/api/login",
+				{
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ studentID, password }),
+				}
+			);
 			const data = await res.json();
 			if (res.ok) {
 				setStudentData({
 					studentID: data.user.studentID,
 					name: data.user.name,
 					destination: data.user.destination,
-				  });
+				});
 				Cookies.set(data.token, "jwtToken", { expires: 1 });
 				history.push("/buses");
 			} else {

@@ -17,7 +17,7 @@ const BusListing = () => {
 			try {
 				const { destination } = studentData; // For example, use dynamic destination from user profile
 				const res = await fetch(
-					`http://localhost:3001/api/buses?destination=${destination}`
+					`https://bus-disbursement-backend-1.onrender.com/api/buses?destination=${destination}`
 				);
 				const data = await res.json();
 				setBuses(data);

@@ -1,32 +1,63 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 50px;
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .navbar h1 {
-    margin: 0;
-  }
-  
-  .navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .navbar ul li {
-    display: inline;
-  }
-  
-  .navbar ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .navbar ul li a:hover {
-    text-decoration: underline;
-  }
-  
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: white;
+	flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.navbar h1 {
+	margin: 0;
+	font-size: 1.5rem; /* Responsive font size */
+}
+
+.navbar ul {
+	list-style: none;
+	display: flex;
+	gap: 20px;
+}
+
+.navbar ul li {
+	display: inline;
+}
+
+.navbar ul li a {
+	color: white;
+	text-decoration: none;
+}
+
+.navbar ul li a:hover {
+	text-decoration: underline;
+}
+
+/* Media query for screens smaller than 768px (mobile) */
+@media (max-width: 768px) {
+	.navbar {
+		flex-direction: column; /* Stack items vertically */
+		align-items: flex-start; /* Align text to the left */
+		padding: 10px;
+	}
+
+	.navbar h1 {
+		font-size: 1.3rem; /* Slightly smaller heading for mobile */
+	}
+
+	.navbar ul {
+		display: flex;
+		flex-direction: column; /* Stack links vertically */
+		gap: 10px;
+		width: 100%; /* Take full width */
+		align-items: flex-start;
+		margin-top: 10px;
+	}
+
+	.navbar ul li {
+		display: block; /* Make each item block for full width */
+	}
+
+	.navbar ul li a {
+		font-size: 1.1rem; /* Slightly larger font for touch-friendly links */
+	}
+}
